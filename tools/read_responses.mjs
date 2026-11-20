@@ -66,7 +66,7 @@ if (localFile) {
     const issues=await roster.json();
     for (const issue of issues) {
       const match=/^Listening response ([0-9a-f]{64})$/.exec(issue.title);
-      if (!match || issue.pull_request || seen.has(match[1])) continue;
+      if (!match || issue.pull_request || seen.has(match[1]) || issue.labels.some(label=>label.name==="study-rehearsal")) continue;
       try {
         let text=(issue.body || "").trim();
         if (!text.startsWith("AWS1.")) {
