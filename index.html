@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Spatial listening test · AudioWorldSim</title>
+  <link rel="stylesheet" href="styles.css?v=paired120">
+</head>
+<body>
+  <header class="mast"><div class="mast-inner">
+    <div class="brand"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>AudioWorldSim</div>
+    <button class="help" id="help" type="button">Instructions</button>
+  </div></header>
+  <main>
+    <noscript><p>This study requires JavaScript to play the recordings and record answers.</p></noscript>
+    <p id="warning" class="notice" role="alert" hidden></p>
+    <section id="welcome" aria-labelledby="welcome-title">
+      <div class="intro"><h1 id="welcome-title">Spatial listening test</h1>
+      <p>Listen to short recordings and describe where sounds are and how they move.</p></div>
+      <div class="setup-grid">
+        <section class="panel channel-panel">
+          <div class="head-icon" aria-hidden="true"><i></i><b></b></div>
+          <h2>Check your headphones</h2>
+          <p>Use stereo headphones in a quiet room. Turn off mono audio, spatial effects and head tracking. Each tone should play on the indicated side only.</p>
+          <div class="tones" aria-label="Stereo channel check">
+            <button type="button" data-ear="left"><span class="channel-letter">L</span>Play left tone</button>
+            <button type="button" data-ear="right"><span class="channel-letter">R</span>Play right tone</button>
+          </div>
+          <div id="tone-status" role="status" class="small">Set a comfortable volume and keep it fixed during the test.</div>
+        </section>
+        <form id="start-form" class="panel start-panel">
+          <h2>Your session</h2>
+          <p>Answer 120 listening trials in two blocks of 60. Each block includes six short written responses. You can pause and resume with the same code.</p>
+          <p>At the end, sign in to GitHub to submit. Your account name will be visible on the public submission. Your answers and playback records are encrypted for the organizer.</p>
+          <label for="listener">Listener code</label>
+          <input id="listener" type="text" maxlength="5" placeholder="L01" autocomplete="off" autocapitalize="characters" spellcheck="false" required pattern="[Ll][0-9]{2,4}" aria-describedby="code-note">
+          <span class="small" id="code-note">Use the code assigned by the organizer. The same code resumes your session on this device.</span>
+          <button type="submit" class="primary">Enter listening test <span aria-hidden="true">→</span></button>
+        </form>
+      </div>
+    </section>
+    <section id="test" aria-labelledby="question-title" hidden>
+      <div class="test-head"><div><span id="session-label" class="small"></span><h1 id="question-title" tabindex="-1"></h1></div>
+        <div class="progress-box"><span id="progress-text"></span><progress id="progress" max="120" value="0"></progress></div></div>
+      <div class="question-grid">
+        <section class="panel playback">
+          <h2>Recording</h2>
+          <audio id="player" controls preload="auto" aria-label="Question recording"></audio>
+          <p id="media-error" class="notice" role="alert" hidden></p>
+          <div id="setup-text" class="setup-text"></div>
+        </section>
+        <section class="panel response">
+          <h2 id="response-title">Your answer</h2>
+          <div id="prompt" class="prompt-text"></div>
+          <p id="instruction" class="instruction"></p>
+          <div id="answer" role="group" aria-labelledby="response-title" aria-describedby="prompt instruction"></div>
+          <p id="validation" class="notice" role="alert" hidden></p>
+          <div class="question-nav"><button id="back" type="button" class="secondary">Previous</button><button id="next" type="button" class="primary"></button></div>
+        </section>
+      </div>
+      <div class="session-footer"><span id="save-note"></span><button class="link-button" id="leave" type="button">Return to start</button></div>
+    </section>
+    <section id="pause" class="panel end-panel" hidden>
+      <h1 id="pause-title" tabindex="-1">First block complete</h1>
+      <p>You have answered 60 of 120 trials. You can take a break and return with the same device, browser and listener code. For the next block, answer each question based on the recording you hear.</p>
+      <div class="end-actions"><button id="resume-block" class="primary" type="button">Start block 2</button><button id="partial" class="secondary" type="button">Download first block</button><button id="pause-home" class="link-button" type="button">Return to start</button></div>
+    </section>
+    <section id="done" class="panel end-panel" hidden>
+      <div class="checkmark" aria-hidden="true">✓</div>
+      <h1 tabindex="-1" id="done-title">Listening test complete</h1>
+      <p id="receipt"></p><p id="submission-status" role="status"></p>
+      <textarea id="submission-body" rows="2" readonly aria-label="Encrypted response to paste into GitHub" hidden></textarea>
+      <div class="end-actions"><button id="github-copy" class="secondary" type="button" hidden>Copy encrypted response</button><button id="attachment" class="secondary" type="button" hidden>Download encrypted attachment</button><a id="github-submit" class="primary" target="_blank" rel="noopener noreferrer" hidden>Submit on GitHub ↗</a><button id="check-receipt" class="secondary" type="button" hidden>Check receipt</button><button id="download" class="secondary" type="button">Download private backup</button><button class="secondary" id="return" type="button">Return to start</button></div>
+    </section>
+  </main>
+  <dialog id="instructions"><h2>Listening instructions</h2>
+    <ol><li>Wear stereo headphones in the correct left/right orientation. Keep your playback volume fixed.</li><li>Listen to the recording before moving on. You can replay it. Some questions combine several recordings into one file. Use the time ranges shown.</li><li>Select one answer, select all that apply, or write your own answer as requested. Give open answers in English.</li><li>You can revise answers within the current block. After the final trial, follow the submission instructions.</li></ol>
+    <form method="dialog"><button class="primary">Close instructions</button></form>
+  </dialog>
+  <script src="questions.js?v=paired120"></script>
+  <script src="public-key.js"></script>
+  <script src="submission.js"></script>
+  <script src="app.js?v=paired120-gh"></script>
+</body></html>
