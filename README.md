@@ -2,7 +2,7 @@
 
 [Open the headphone listening test](https://luo-zhengding.github.io/Spatial-Audio-Listening/).
 
-Each listener completes two blocks of 60 trials. Use the code assigned by the study organizer and the same browser to resume. You will use stereo headphones and submit via GitHub after the second block. A GitHub account is required to confirm a submission. The account name appears on the public issue.
+Each listener completes two blocks of 60 trials. Enter your English name. To resume, use the same name in the same browser. You will use stereo headphones and submit via GitHub after the second block. A GitHub account is required to confirm a submission. The account name appears on the public issue.
 
 The browser encrypts your answers and playback records for the organizer before opening GitHub. Select **Create** on the prefilled issue. For unusually long written answers the test offers encrypted text to paste or an encrypted file to attach. Keep the private JSONL backup on your own device.
 

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <title>Spatial listening test · AudioWorldSim</title>
-  <link rel="stylesheet" href="styles.css?v=paired120">
+  <link rel="stylesheet" href="styles.css?v=english-name">
 </head>
 <body>
   <header class="mast"><div class="mast-inner">
@@ -31,11 +31,9 @@
         </section>
         <form id="start-form" class="panel start-panel">
           <h2>Your session</h2>
-          <p>Answer 120 listening trials in two blocks of 60. Each block includes six short written responses. You can pause and resume with the same code.</p>
-          <p>At the end, sign in to GitHub to submit. Your account name will be visible on the public submission. Your answers and playback records are encrypted for the organizer.</p>
-          <label for="listener">Listener code</label>
-          <input id="listener" type="text" maxlength="5" placeholder="L01" autocomplete="off" autocapitalize="characters" spellcheck="false" required pattern="[Ll][0-9]{2,4}" aria-describedby="code-note">
-          <span class="small" id="code-note">Use the code assigned by the organizer. The same code resumes your session on this device.</span>
+          <p>Your answers will be collected for academic research.</p>
+          <label for="listener">English name</label>
+          <input id="listener" name="name" type="text" maxlength="120" placeholder="e.g. Alex Chen" autocomplete="name" autocapitalize="words" spellcheck="false" required>
           <button type="submit" class="primary">Enter listening test <span aria-hidden="true">→</span></button>
         </form>
       </div>
@@ -63,7 +61,7 @@
     </section>
     <section id="pause" class="panel end-panel" hidden>
       <h1 id="pause-title" tabindex="-1">First block complete</h1>
-      <p>You have answered 60 of 120 trials. You can take a break and return with the same device, browser and listener code. For the next block, answer each question based on the recording you hear.</p>
+      <p>You have answered 60 of 120 trials. To resume, enter the same name in this browser.</p>
       <div class="end-actions"><button id="resume-block" class="primary" type="button">Start block 2</button><button id="partial" class="secondary" type="button">Download first block</button><button id="pause-home" class="link-button" type="button">Return to start</button></div>
     </section>
     <section id="done" class="panel end-panel" hidden>
@@ -80,6 +78,6 @@
   </dialog>
   <script src="questions.js?v=paired120"></script>
   <script src="public-key.js"></script>
-  <script src="submission.js"></script>
-  <script src="app.js?v=paired120-gh"></script>
+  <script src="submission.js?v=english-name"></script>
+  <script src="app.js?v=english-name"></script>
 </body></html>

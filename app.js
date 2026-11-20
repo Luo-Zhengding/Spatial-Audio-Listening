@@ -18,7 +18,7 @@
   const memory = new Map();
   let submission, checking = false;
   let state, order, toneContext, tone, activeClip, storedValue;
-  const memoryKey = code => study.study + ":" + code;
+  const memoryKey = session => study.study + ":" + (session.name ? "name:" + session.name.toLowerCase() : session.code);
   const qAt = () => catalog.get(order[state.index].id);
 
   function shuffle(items, seed) {
@@ -41,7 +41,7 @@
     }));
   }
   function save() {
-    const key = memoryKey(state.code);
+    const key = memoryKey(state);
     const data = JSON.stringify(state);
     memory.set(key, data);
     try {
@@ -55,12 +55,12 @@
   }
   // A completed session must never be overwritten by a stale tab.
   window.addEventListener("storage", event => {
-    if (!state || event.key !== memoryKey(state.code) || event.newValue === storedValue) return;
+    if (!state || event.key !== memoryKey(state) || event.newValue === storedValue) return;
     player.pause();
     memory.delete(event.key);
     state = null;
     show("welcome");
-    warn("This listener session changed in another tab. Continue there or re-enter your code here.");
+    warn("This session changed in another tab. Continue there or enter your name again.");
   });
   function show(id) {
     for (const section of ["welcome", "test", "pause", "done"]) byId(section).hidden = section !== id;
@@ -71,8 +71,12 @@
     }
     window.scrollTo(0, 0);
   }
-  function newSession(code) {
-    return {code, list: Number(code.slice(1)) % 2 ? "A" : "B",
+  function newSession(name) {
+    const bytes = crypto.getRandomValues(new Uint8Array(16));
+    const code = "P" + Array.from(bytes,b => b.toString(16).padStart(2,"0")).join("");
+    const assigned = new URLSearchParams(location.search).get("list");
+    const list = ["A","B"].includes(assigned) ? assigned : (bytes[0] % 2 ? "A" : "B");
+    return {name, code, list,
       started: now(), index: 0, breakPending: false, finished: null, trials: {}};
   }
   function trial() { return state.trials[order[state.index].key]; }
@@ -134,7 +138,7 @@
     const q = qAt(), {clip, key} = order[state.index];
     if (!state.trials[key]) state.trials[key] = {answer:null, plays:0, ended:false, firstShown:now(), updated:null};
     show("test"); clearValidation();
-    byId("session-label").textContent = state.code + "  ·  Block " + (state.index < half ? "1" : "2") + " of 2";
+    byId("session-label").textContent = (state.name || state.code) + "  ·  Block " + (state.index < half ? "1" : "2") + " of 2";
     byId("question-title").textContent = "Question " + (state.index + 1);
     byId("question-title").focus();
     paragraphs(byId("setup-text"), q.setup);
@@ -149,29 +153,33 @@
     renderAnswer(q, trial()); save(); progress();
   }
   function renderDone() {
-    show("done"); byId("receipt").textContent = state.code + " · " + count + " answers recorded.";
+    show("done"); byId("receipt").textContent = (state.name || state.code) + " · " + count + " answers recorded.";
     byId("done-title").focus();
     prepareSubmission();
   }
   byId("start-form").addEventListener("submit", e => {
     e.preventDefault();
-    const input = byId("listener"), num = Number(input.value.trim().slice(1));
-    if (!num || !/^[Ll]\d{2,4}$/.test(input.value.trim())) {
-      warn("Enter your assigned listener code, for example L01."); input.focus(); return;
-    }
-    const code = "L" + String(num).padStart(2, "0");
-    input.value = code; warn("");
-    const key = memoryKey(code);
+    const input = byId("listener");
+    const name = input.value.normalize("NFC").trim().replace(/\s+/gu," ");
+    const legacy = /^L\d{2,4}$/i.test(name);
+    const code = legacy ? "L" + String(Number(name.slice(1))).padStart(2,"0") : null;
+    const key = memoryKey(legacy ? {code} : {name});
     let raw = memory.get(key);
     try { raw = localStorage.getItem(key) || raw; } catch { /* save() reports unavailable storage. */ }
+    if (!(legacy && raw) && (!/\p{Script=Latin}/u.test(name) ||
+        !/^[\p{Script=Latin}\p{Mark} .'’ʼ‐‑-]+$/u.test(name))) {
+      warn("Enter your name in English, for example Alex Chen."); input.focus(); return;
+    }
+    warn("");
     try {
-      const next = raw ? JSON.parse(raw) : newSession(code);
-      if (next.code !== code || next.list !== newSession(code).list || !next.trials ||
+      const next = raw ? JSON.parse(raw) : newSession(name);
+      if (memoryKey(next) !== key || !["A","B"].includes(next.list) || !next.trials ||
           !Number.isInteger(next.index) || next.index < 0 || next.index >= count) throw Error();
+      input.value = next.name || next.code;
       state = next; storedValue = raw;
     } catch { warn("The saved session cannot be read. Contact the organizer before continuing."); return; }
     if (tone) { try { tone.stop(); } catch {} }
-    order = schedule(code, state.list); renderQuestion();
+    order = schedule(state.code, state.list); renderQuestion();
   });
   player.addEventListener("playing", () => {
     if (!state || !activeClip || player.getAttribute("src") !== activeClip || player.paused) return;
@@ -213,7 +221,8 @@
     return order.flatMap(({id, key, clip}, i) => {
       const t = state.trials[key]; if (!hasAnswer(t)) return [];
       const q = catalog.get(id);
-      return [{study:study.study, release_sha256:study.release, participant:state.code, list:state.list,
+      return [{study:study.study, release_sha256:study.release, participant:state.code,
+        ...(state.name ? {participant_name:state.name} : {}), list:state.list,
         block:i < half ? 1 : 2, position:i+1, qa_id:id, view:clip.view, audio_sha256:clip.sha256,
         prompt_sha256:q.promptSha256, subtype_id:q.subtype, answer_format:q.format, answer:t.answer,
         raw_response:Array.isArray(t.answer) ? t.answer.join(", ") : t.answer,

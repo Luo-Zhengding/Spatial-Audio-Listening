@@ -23,8 +23,11 @@ function unpack(text) {
   const compressed = Buffer.concat([dec.update(cipher.subarray(0,-16)),dec.final()]);
   const data = JSON.parse(gunzipSync(compressed,{maxOutputLength:16*1024*1024}));
   const half = pack.questions.length;
-  if (data.study !== pack.study || data.release !== pack.release || !/^L\d{2,4}$/.test(data.code) ||
-      data.list !== (Number(data.code.slice(1))%2 ? "A":"B") || data.trials.length !== 2*half) throw Error("Study identity or trial count mismatch");
+  const legacy = /^L\d{2,4}$/.test(data.code) && data.list === (Number(data.code.slice(1))%2 ? "A":"B");
+  const named = /^P[0-9a-f]{32}$/.test(data.code) && typeof data.name === "string" &&
+    data.name.trim().length > 0 && data.name.length <= 120 && ["A","B"].includes(data.list);
+  if (data.study !== pack.study || data.release !== pack.release || !(legacy || named) ||
+      data.trials.length !== 2*half) throw Error("Study identity or trial count mismatch");
   const start = Date.parse(data.start);
   const at = offset => new Date(start+offset).toISOString();
   const seen = new Set();
@@ -33,7 +36,7 @@ function unpack(text) {
         (i>=half && index!==data.trials[i-half][0])) throw Error("Invalid paired trial");
     seen.add(index+"/"+side);
     const q=pack.questions[index], clip=q.clips[side];
-    return {study:pack.study,release_sha256:pack.release,participant:data.code,list:data.list,
+    return {study:pack.study,release_sha256:pack.release,participant:data.code,...(named ? {participant_name:data.name} : {}),list:data.list,
       block:i<half?1:2,position:i+1,qa_id:q.id,view:clip.view,audio_sha256:clip.sha256,
       prompt_sha256:q.promptSha256,subtype_id:q.subtype,answer_format:q.format,answer,
       raw_response:Array.isArray(answer)?answer.join(", "):answer,playback_starts:plays,reached_end:Boolean(ended),
