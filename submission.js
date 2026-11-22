@@ -12,6 +12,7 @@
     const indices = new Map(study.questions.map((q,i) => [q.id,i]));
     const packed = {
       study:study.study, release:study.release, code:first.participant, name:first.participant_name, list:first.list,
+      previousTrials:rows.flatMap((r,i) => r.release_sha256 === study.previousRelease ? [i] : []),
       start:first.session_started_utc, end:first.finished_utc,
       trials:rows.map(r => [indices.get(r.qa_id), r.view === "direct_binaural" ? 0 : 1,
         r.answer, r.playback_starts, Number(r.reached_end), Date.parse(r.first_shown_utc)-start,

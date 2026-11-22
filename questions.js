@@ -1,6 +1,7 @@
 window.LISTENING_STUDY = {
   "study": "aws-listening-paired120-20261121-v1",
-  "release": "0f2cae952769aa5d16fdf4606a1130e9480856701fe68ade0258d151004b8645",
+  "release": "913d6767897d7aecc10e78ce3364644778da1d4c53047a7774894401b7591c37",
+  "previousRelease": "0f2cae952769aa5d16fdf4606a1130e9480856701fe68ade0258d151004b8645",
   "questions": [
     {
       "id": "q_1a6abd3dc49c7a1ed99cb2c9",
@@ -294,14 +295,14 @@ window.LISTENING_STUDY = {
       "options": [
         {
           "letter": "A",
-          "text": "Move right, then left."
+          "text": "You moved right, then you moved left."
         },
         {
           "letter": "B",
-          "text": "Move left, then right."
+          "text": "You moved left, then you moved right."
         }
       ],
-      "promptSha256": "26a2d49ea7d4f190a0dd9307e62c8b63bd7cdf513837c1e52c64e48fc0f4ae96",
+      "promptSha256": "12ed7dd5ea6ac1345b542cbd788516aae850e74fc6e982dd05a462d2c3885f34",
       "directForA": false,
       "clips": [
         {
@@ -314,7 +315,8 @@ window.LISTENING_STUDY = {
           "sha256": "bfd480f18e1947e336da0aca89f3031154f10dfb031286e7a0098076d6bbbefa",
           "view": "reverberant_binaural"
         }
-      ]
+      ],
+      "previousPromptSha256": "26a2d49ea7d4f190a0dd9307e62c8b63bd7cdf513837c1e52c64e48fc0f4ae96"
     },
     {
       "id": "q_810d2c1841d14590475807c4",
@@ -1172,14 +1174,14 @@ window.LISTENING_STUDY = {
       "options": [
         {
           "letter": "A",
-          "text": "Turn left from 0 to 3.5 s, then turn right from 3.5 to 10 s."
+          "text": "You turned your head left from 0 to 3.5 s, then you turned your head right from 3.5 to 10 s."
         },
         {
           "letter": "B",
-          "text": "Turn left from 0 to 6.5 s, then turn right from 6.5 to 10 s."
+          "text": "You turned your head left from 0 to 6.5 s, then you turned your head right from 6.5 to 10 s."
         }
       ],
-      "promptSha256": "9f049ebaae3cfb8ceae1e565f5fa3ea227cc69c92730f367281681b89fcce806",
+      "promptSha256": "661ffaa2f53f42edcb659380c34474bb253e9645d8bba48ba833a1b2307b84e9",
       "directForA": true,
       "clips": [
         {
@@ -1192,7 +1194,8 @@ window.LISTENING_STUDY = {
           "sha256": "9a8f8e3786fe5a7e8fdeb3cd8d8f09e3640dd8eb4c024a770f3dce674cd34982",
           "view": "reverberant_binaural"
         }
-      ]
+      ],
+      "previousPromptSha256": "9f049ebaae3cfb8ceae1e565f5fa3ea227cc69c92730f367281681b89fcce806"
     },
     {
       "id": "q_47efe823b5ff0ae17aadf725",
@@ -1696,7 +1699,7 @@ window.LISTENING_STUDY = {
       "id": "q_9a3fb691e419ee2c307572dc",
       "subtype": "match_timed_movement_audio",
       "format": "single_choice",
-      "setup": "Each recording has its own timeline, starting at 0 seconds.\n\nEach candidate is one continuous recording. Initially, the source was 0.55 m directly in front of you at ear level. From 0 to 2.5 seconds, move 0.55 m toward the right of your initial facing direction while keeping your current heading. From 2.5 to 5 seconds, turn your head 45 degrees to your left without changing position.",
+      "setup": "Each recording has its own timeline, starting at 0 seconds.\n\nEach candidate is one continuous recording. Initially, the source was 0.55 m directly in front of you at ear level. From 0 to 2.5 seconds, you moved 0.55 m toward the right of your initial facing direction while keeping your current heading. From 2.5 to 5 seconds, you turned your head 45 degrees to your left without changing position.",
       "question": "The source stayed fixed. Which recording matches the two movements shown on the timeline?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -1709,7 +1712,7 @@ window.LISTENING_STUDY = {
           "text": "Candidate 1"
         }
       ],
-      "promptSha256": "ebaf736ca8f7c747de796918a2e56bf7e7302ca6fdb320ee4c5e2c6e66075d2c",
+      "promptSha256": "fbe0ed3bc5c17a1964a5ed5c6dcf8266f40a68b84f31e1eacab15e740d1babac",
       "directForA": true,
       "clips": [
         {
@@ -1734,7 +1737,8 @@ window.LISTENING_STUDY = {
           "start_s": 5.0,
           "end_s": 10.0
         }
-      ]
+      ],
+      "previousPromptSha256": "ebaf736ca8f7c747de796918a2e56bf7e7302ca6fdb320ee4c5e2c6e66075d2c"
     },
     {
       "id": "q_6a437f7ed65604780a3a631a",
@@ -1998,14 +2002,14 @@ window.LISTENING_STUDY = {
       "options": [
         {
           "letter": "A",
-          "text": "Move left from 0 to 6.325 s, then move right from 6.325 to 10 s."
+          "text": "You moved left from 0 to 6.325 s, then you moved right from 6.325 to 10 s."
         },
         {
           "letter": "B",
-          "text": "Move left from 0 to 3.05 s, then move right from 3.05 to 10 s."
+          "text": "You moved left from 0 to 3.05 s, then you moved right from 3.05 to 10 s."
         }
       ],
-      "promptSha256": "0faaf7f0f2c268aaa1382634eda800080a07902a009e79be3e9de2e9c43f2475",
+      "promptSha256": "bb13a3e8c1349094e85a62d709823b4a9df835a391234a642b23c73995263396",
       "directForA": false,
       "clips": [
         {
@@ -2018,7 +2022,8 @@ window.LISTENING_STUDY = {
           "sha256": "8db2712959e9c0d36cd05042891a17534db2b9e5ac3215a3d17bb590c76470ba",
           "view": "reverberant_binaural"
         }
-      ]
+      ],
+      "previousPromptSha256": "0faaf7f0f2c268aaa1382634eda800080a07902a009e79be3e9de2e9c43f2475"
     },
     {
       "id": "q_6a86476c98f817e0342ae8dc",
@@ -2277,7 +2282,7 @@ window.LISTENING_STUDY = {
       "subtype": "count_direction_reversals",
       "format": "single_choice",
       "setup": "The supplied audio contains the following recording:\nRecording 1: 0 to 8 seconds in the supplied audio.\n\nThis is one continuous recording.",
-      "question": "The source stayed in one place. Initially, it was directly in front of you at ear level. You moved laterally along a straight line without pausing or changing your facing direction. How many times did you reverse the direction of your movement?",
+      "question": "The source stayed in one place. Initially, it was directly in front of you at ear level. You moved along a straight line on your left–right axis, without pausing or changing the direction you were facing. How many times did you reverse the direction of your movement?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
         {
@@ -2293,7 +2298,7 @@ window.LISTENING_STUDY = {
           "text": "Zero times"
         }
       ],
-      "promptSha256": "18728900c0b93ab80360959142ee394fc8d6a7e4df428f2c4481838a4c088d73",
+      "promptSha256": "69061103e5f5dd34a61dbdb4b66cca2d20d99c35c38edd0899179ac7d335f6e9",
       "directForA": true,
       "clips": [
         {
@@ -2306,7 +2311,8 @@ window.LISTENING_STUDY = {
           "sha256": "8804607d98aaebfd90fee0283f21c975904becd6af6968d7a26103e1dd3fa590",
           "view": "reverberant_binaural"
         }
-      ]
+      ],
+      "previousPromptSha256": "18728900c0b93ab80360959142ee394fc8d6a7e4df428f2c4481838a4c088d73"
     },
     {
       "id": "q_d968801fab615478c4a76501",
@@ -2366,14 +2372,14 @@ window.LISTENING_STUDY = {
       "options": [
         {
           "letter": "A",
-          "text": "Move right, then left."
+          "text": "You moved right, then you moved left."
         },
         {
           "letter": "B",
-          "text": "Move left, then right."
+          "text": "You moved left, then you moved right."
         }
       ],
-      "promptSha256": "591183da6b334520701b556ae4ccb5d27b948e4cfcf6617451f1e026d571093f",
+      "promptSha256": "4f41d802c9585d3b3114c67060617d8a85a133b97daa02ae9e3fdbc84b14e3bd",
       "directForA": true,
       "clips": [
         {
@@ -2386,7 +2392,8 @@ window.LISTENING_STUDY = {
           "sha256": "bcbfc4ef6cd87d4670da0b59967daac80101f51927cf911cd6b04c1899988db8",
           "view": "reverberant_binaural"
         }
-      ]
+      ],
+      "previousPromptSha256": "591183da6b334520701b556ae4ccb5d27b948e4cfcf6617451f1e026d571093f"
     }
   ]
 };

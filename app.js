@@ -100,7 +100,7 @@
     const el = byId("validation"); el.textContent = message; el.hidden = false;
   }
   function setAnswer(value) {
-    trial().answer = value; trial().updated = now();
+    trial().answer = value; trial().answerRelease = study.release; trial().updated = now();
     clearValidation(); save(); progress();
   }
   function renderAnswer(q, t) {
@@ -267,10 +267,12 @@
     return order.flatMap(({id, key, clip}, i) => {
       const t = state.trials[key]; if (!hasAnswer(t)) return [];
       const q = catalog.get(id);
-      return [{study:study.study, release_sha256:study.release, participant:state.code,
+      const release = t.answerRelease || study.previousRelease;
+      const promptHash = release === study.previousRelease && q.previousPromptSha256 || q.promptSha256;
+      return [{study:study.study, release_sha256:release, participant:state.code,
         ...(state.name ? {participant_name:state.name} : {}), list:state.list,
         block:i < half ? 1 : 2, position:i+1, qa_id:id, view:clip.view, audio_sha256:clip.sha256,
-        prompt_sha256:q.promptSha256, subtype_id:q.subtype, answer_format:q.format, answer:t.answer,
+        prompt_sha256:promptHash, subtype_id:q.subtype, answer_format:q.format, answer:t.answer,
         raw_response:Array.isArray(t.answer) ? t.answer.join(", ") : t.answer,
         playback_starts:t.plays, reached_end:t.ended,
         ...(t.parts ? {segment_playback:t.parts, prior_full_clip_playback:t.playedWhole} : {}),
