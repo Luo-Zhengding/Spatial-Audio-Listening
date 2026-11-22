@@ -13,11 +13,12 @@
   const half = catalog.size;
   const count = half * 2;
   const now = () => new Date().toISOString();
-  const player = byId("player");
+  const players = byId("players");
   const answerBox = byId("answer");
   const memory = new Map();
   let submission, checking = false;
-  let state, order, toneContext, tone, activeClip, storedValue;
+  let state, order, toneContext, tone, storedValue;
+  let volume = 1, muted = false;
   const memoryKey = session => study.study + ":" + (session.name ? "name:" + session.name.toLowerCase() : session.code);
   const qAt = () => catalog.get(order[state.index].id);
 
@@ -56,7 +57,6 @@
   // A completed session must never be overwritten by a stale tab.
   window.addEventListener("storage", event => {
     if (!state || event.key !== memoryKey(state) || event.newValue === storedValue) return;
-    player.pause();
     memory.delete(event.key);
     state = null;
     show("welcome");
@@ -64,11 +64,7 @@
   });
   function show(id) {
     for (const section of ["welcome", "test", "pause", "done"]) byId(section).hidden = section !== id;
-    if (id !== "test") {
-      player.pause();
-      activeClip = null;
-      player.removeAttribute("src"); player.load();
-    }
+    if (id !== "test") clearPlayers();
     window.scrollTo(0, 0);
   }
   function newSession(name) {
@@ -80,12 +76,15 @@
       started: now(), index: 0, breakPending: false, finished: null, trials: {}};
   }
   function trial() { return state.trials[order[state.index].key]; }
+  function hasPlayback(t) {
+    return t?.plays > 0 && (!t.parts || t.playedWhole || t.parts.every(p => p.starts > 0));
+  }
   function hasAnswer(t) {
     if (!t) return false;
     return Array.isArray(t.answer) ? t.answer.length > 0 : typeof t.answer === "string" && t.answer.trim().length > 0;
   }
   function progress() {
-    const n = Object.values(state.trials).filter(t => t.plays && hasAnswer(t)).length;
+    const n = Object.values(state.trials).filter(t => hasPlayback(t) && hasAnswer(t)).length;
     byId("progress-text").textContent = n + " of " + count + " answered";
     byId("progress").max = count;
     byId("progress").value = n;
@@ -132,6 +131,65 @@
         ? Array.from(answerBox.querySelectorAll("input:checked"), x => x.value) : input.value));
     }
   }
+  function clearPlayers() {
+    const previous = players.querySelectorAll("audio");
+    players.replaceChildren();
+    for (const audio of previous) {
+      audio.pause(); audio.removeAttribute("src"); audio.load();
+    }
+  }
+  function renderPlayers(q, clip, t) {
+    clearPlayers();
+    byId("media-error").hidden = true;
+    byId("recordings-title").textContent = q.segments ? "Recordings" : "Recording";
+    if (q.segments && !t.parts) {
+      t.playedWhole = t.plays > 0;
+      t.parts = q.segments.map(() => ({starts:0, ended:false}));
+    }
+    const spans = q.segments || [{label:"Question recording"}];
+    spans.forEach((span, i) => {
+      const audio = document.createElement("audio");
+      audio.controls = true; audio.preload = "metadata";
+      audio.volume = volume; audio.muted = muted;
+      audio.setAttribute("aria-label",span.label);
+      if (q.segments) {
+        const label = document.createElement("strong");
+        label.className = "recording-label"; label.textContent = span.label;
+        players.append(label);
+      }
+      players.append(audio);
+      audio.addEventListener("play", () => {
+        if (audio.paused || !players.contains(audio)) return;
+        for (const other of players.querySelectorAll("audio")) if (other !== audio) other.pause();
+      });
+      audio.addEventListener("volumechange", () => {
+        if (!players.contains(audio)) return;
+        volume = audio.volume; muted = audio.muted;
+        for (const other of players.querySelectorAll("audio")) {
+          if (other.volume !== volume) other.volume = volume;
+          if (other.muted !== muted) other.muted = muted;
+        }
+      });
+      audio.addEventListener("playing", () => {
+        if (!players.contains(audio) || audio.paused) return;
+        t.plays++;
+        if (t.parts) t.parts[i].starts++;
+        clearValidation(); save(); progress();
+      });
+      audio.addEventListener("ended", () => {
+        if (!players.contains(audio)) return;
+        if (t.parts) t.parts[i].ended = true;
+        t.ended ||= !t.parts || t.parts.every(p => p.ended);
+        save();
+      });
+      audio.addEventListener("error", () => {
+        if (!players.contains(audio)) return;
+        byId("media-error").textContent = span.label + " is unavailable. Reload this question or contact the organizer.";
+        byId("media-error").hidden = false;
+      });
+      audio.src = q.segments ? clip.file.replace(/\.wav$/, "-" + (i + 1) + ".wav") : clip.file;
+    });
+  }
   function renderQuestion() {
     if (state.finished) { renderDone(); return; }
     if (state.breakPending) { show("pause"); byId("pause-title").focus(); return; }
@@ -145,8 +203,7 @@
     paragraphs(byId("prompt"), q.question);
     byId("instruction").textContent = q.format === "open" ? q.instruction :
       q.format === "multiple_select" ? "Select all that apply." : "Select one answer.";
-    player.pause(); activeClip = clip.file; player.src = clip.file; player.load();
-    byId("media-error").hidden = true;
+    renderPlayers(q, clip, trial());
     byId("back").disabled = state.index === 0 || state.index === half;
     byId("next").textContent = state.index === count - 1 ? "Finish test" :
       state.index === half - 1 ? "Finish block 1" : "Next question →";
@@ -181,24 +238,13 @@
     if (tone) { try { tone.stop(); } catch {} }
     order = schedule(state.code, state.list); renderQuestion();
   });
-  player.addEventListener("playing", () => {
-    if (!state || !activeClip || player.getAttribute("src") !== activeClip || player.paused) return;
-    trial().plays++; clearValidation(); save(); progress();
-  });
-  player.addEventListener("ended", () => {
-    if (!state || !activeClip) return;
-    trial().ended = true; save();
-  });
-  player.addEventListener("error", () => {
-    if (!activeClip || !state) return;
-    byId("media-error").textContent = "Recording unavailable. Reload this question or contact the organizer.";
-    byId("media-error").hidden = false;
-  });
   byId("next").addEventListener("click", () => {
-    if (!trial().plays) { invalid("Play the recording before continuing."); return; }
+    if (!hasPlayback(trial())) {
+      invalid(trial().parts ? "Play each recording before continuing." : "Play the recording before continuing."); return;
+    }
     if (!hasAnswer(trial())) { invalid("Enter an answer before continuing."); return; }
     if (state.index === count - 1) {
-      const missing = order.findIndex(({key}) => !state.trials[key]?.plays || !hasAnswer(state.trials[key]));
+      const missing = order.findIndex(({key}) => !hasPlayback(state.trials[key]) || !hasAnswer(state.trials[key]));
       if (missing >= 0) { state.index = missing; renderQuestion(); return; }
       state.finished = now(); save(); renderDone(); return;
     }
@@ -226,7 +272,9 @@
         block:i < half ? 1 : 2, position:i+1, qa_id:id, view:clip.view, audio_sha256:clip.sha256,
         prompt_sha256:q.promptSha256, subtype_id:q.subtype, answer_format:q.format, answer:t.answer,
         raw_response:Array.isArray(t.answer) ? t.answer.join(", ") : t.answer,
-        playback_starts:t.plays, reached_end:t.ended, session_started_utc:state.started,
+        playback_starts:t.plays, reached_end:t.ended,
+        ...(t.parts ? {segment_playback:t.parts, prior_full_clip_playback:t.playedWhole} : {}),
+        session_started_utc:state.started,
         first_shown_utc:t.firstShown, answer_updated_utc:t.updated, finished_utc:state.finished}];
     });
   }

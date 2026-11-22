@@ -31,15 +31,18 @@ function unpack(text) {
   const start = Date.parse(data.start);
   const at = offset => new Date(start+offset).toISOString();
   const seen = new Set();
-  const rows = data.trials.map(([index,side,answer,plays,ended,shown,updated],i) => {
+  const rows = data.trials.map(([index,side,answer,plays,ended,shown,updated,parts,whole],i) => {
     if (!Number.isInteger(index) || ![0,1].includes(side) || !(plays>0) || seen.has(index+"/"+side) ||
         (i>=half && index!==data.trials[i-half][0])) throw Error("Invalid paired trial");
     seen.add(index+"/"+side);
     const q=pack.questions[index], clip=q.clips[side];
+    if (parts && (!Array.isArray(parts) || parts.length !== q.segments?.length ||
+        !parts.every(([starts,end]) => Number.isInteger(starts) && starts >= 0 && [0,1].includes(end)))) throw Error("Invalid recording playback");
     return {study:pack.study,release_sha256:pack.release,participant:data.code,...(named ? {participant_name:data.name} : {}),list:data.list,
       block:i<half?1:2,position:i+1,qa_id:q.id,view:clip.view,audio_sha256:clip.sha256,
       prompt_sha256:q.promptSha256,subtype_id:q.subtype,answer_format:q.format,answer,
       raw_response:Array.isArray(answer)?answer.join(", "):answer,playback_starts:plays,reached_end:Boolean(ended),
+      ...(parts ? {segment_playback:parts.map(([starts,end]) => ({starts,ended:Boolean(end)})),prior_full_clip_playback:Boolean(whole)} : {}),
       session_started_utc:data.start,first_shown_utc:at(shown),answer_updated_utc:at(updated),finished_utc:data.end};
   });
   return {code:data.code,rows};

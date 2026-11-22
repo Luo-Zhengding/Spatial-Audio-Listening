@@ -46,7 +46,7 @@ window.LISTENING_STUDY = {
       "id": "q_3f2f717b4c792dd96aad4431",
       "subtype": "joint_rotation_source_direction",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. Each recording contains a single clearly audible sound source at ear level, at the same distance from you in both recordings.",
+      "setup": "The supplied audio contains two separate static observations. Each recording contains a single clearly audible sound source at ear level, at the same distance from you in both recordings.",
       "question": "Recording 1 was made before the movements and Recording 2 after them. In between, you turned your head 90 degrees to your left without changing position. The source also moved horizontally around you during the turn, in one direction by at most 90 degrees, without reversing. Did the source move around you in the same direction as your head turn or in the opposite direction?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -72,13 +72,25 @@ window.LISTENING_STUDY = {
           "sha256": "8a10ba74df6c20a65cdc6c5637417778676c20210b2f6b378eaa25253049333a",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_0c4c6a14f9193d42d1dbb066",
       "subtype": "compensate_head_turn",
       "format": "open",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "You turned your head 90 degrees to your right without changing position. Recording 1 is before the turn; Recording 2 is after. The source may have stayed still or moved between Recording 1 and Recording 2. Answer all questions in order.\n1. Where do you hear the sound in each recording?\n2. If the source stayed still, where would you hear it in Recording 2?\n3. Does that prediction match what you actually hear in Recording 2?\n4. State whether your head turn alone is enough, or whether source movement is also needed.",
       "instruction": "Answer all numbered questions in their presented order using short English sentences. No fixed sentence count is required.",
       "options": [],
@@ -95,13 +107,25 @@ window.LISTENING_STUDY = {
           "sha256": "47673441c0b986113abcef8f5e3cd83c92f41e61f9a0383ce5bda361ccf9135a",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_a5f03ec5aa7391b25e33bc4a",
       "subtype": "match_after_translation",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording Reference: 0 to 4 seconds in the supplied audio.\nRecording Candidate 1: 4 to 7 seconds in the supplied audio.\nRecording Candidate 2: 7 to 10 seconds in the supplied audio.",
+      "setup": "",
       "question": "The source stayed in one place. Reference was recorded before you moved. You moved 0.55 m diagonally backward and to your right without turning or changing height. Which candidate recording, Candidate 1 or Candidate 2, could have been made after the move?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -127,13 +151,30 @@ window.LISTENING_STUDY = {
           "sha256": "ae70659b9655f6ab11e322d38741a5aaf6da4f5200580544029c7c9dbea33312",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Reference",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Candidate 1",
+          "start_s": 4,
+          "end_s": 7
+        },
+        {
+          "label": "Candidate 2",
+          "start_s": 7,
+          "end_s": 10
+        }
       ]
     },
     {
       "id": "q_ba6c3b610f10695f62d9d9c8",
       "subtype": "translation_compatibility",
       "format": "open",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. Loudness depends only on the distance between you and the sound source.",
+      "setup": "The supplied audio contains two separate static observations. Loudness depends only on the distance between you and the sound source.",
       "question": "You moved 1.78 m to your right in a straight line without turning or changing height. Recording 1 is before the move; Recording 2 is after. In Recording 1, the source is 0.55 m from you at ear level. The source may have stayed still or moved between Recording 1 and Recording 2. Answer all questions in order.\n1. Where do you hear the sound in each recording, and how does the distance between you and the source compare?\n2. If the source stayed still, where would you hear it in Recording 2, and would it be closer, farther away, or at the same distance?\n3. Does that prediction match what you actually hear in Recording 2?\n4. State whether your move alone is enough, or whether source movement is also needed.",
       "instruction": "Answer all numbered questions in their presented order using short English sentences. No fixed sentence count is required.",
       "options": [],
@@ -150,13 +191,25 @@ window.LISTENING_STUDY = {
           "sha256": "c897f466c76c503d8aa66663de77497c684a487240c7468a1425ca1a59e797b8",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_01cd2b34c8a1fdd1a09db4e3",
       "subtype": "joint_rotation_source_direction",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. Each recording contains a single clearly audible sound source at ear level, at the same distance from you in both recordings.",
+      "setup": "The supplied audio contains two separate static observations. Each recording contains a single clearly audible sound source at ear level, at the same distance from you in both recordings.",
       "question": "Recording 1 was made before the movements and Recording 2 after them. In between, you turned your head 90 degrees to your left without changing position. The source also moved horizontally around you during the turn, in one direction by at most 90 degrees, without reversing. Did the source move around you in the same direction as your head turn or in the opposite direction?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -182,13 +235,25 @@ window.LISTENING_STUDY = {
           "sha256": "65b93270bbc5c2132fdec8c063d0f31a698fd9d51332e2fec565b02ca5fba87b",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_d0bf7444c621794164ec1110",
       "subtype": "translation_compatibility",
       "format": "judgment",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. Loudness depends only on the distance between you and the sound source.",
+      "setup": "The supplied audio contains two separate static observations. Loudness depends only on the distance between you and the sound source.",
       "question": "You moved 5.4 m backward in a straight line without turning or changing height. Recording 1 is before the move; Recording 2 is after. The source may have stayed still or moved between Recording 1 and Recording 2. Can your movement alone explain the sound directions and distances in Recording 1 and Recording 2?",
       "instruction": "Answer only Yes or No.",
       "options": [],
@@ -204,6 +269,18 @@ window.LISTENING_STUDY = {
           "file": "clips/ed2c5d4c8fe43450.wav",
           "sha256": "c837a43096180692f634971eafb9e54314b1c789f3ec842e5acc54e5726445fb",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
         }
       ]
     },
@@ -243,7 +320,7 @@ window.LISTENING_STUDY = {
       "id": "q_810d2c1841d14590475807c4",
       "subtype": "match_after_translation",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording Reference: 0 to 4 seconds in the supplied audio.\nRecording Candidate 1: 4 to 7 seconds in the supplied audio.\nRecording Candidate 2: 7 to 10 seconds in the supplied audio.\n\nLoudness depends only on the distance between you and the sound source.",
+      "setup": "Loudness depends only on the distance between you and the sound source.",
       "question": "The source stayed in one place. Reference was recorded before you moved. You moved 5.4 m backward without turning or changing height. Which candidate recording, Candidate 1 or Candidate 2, could have been made after the move?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -268,6 +345,23 @@ window.LISTENING_STUDY = {
           "file": "clips/0d4a8e550ba577de.wav",
           "sha256": "a6afb61d5666638f17e92576f9594605ac3ea84b909f8037d3de7583dd9e8df5",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Reference",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Candidate 1",
+          "start_s": 4,
+          "end_s": 7
+        },
+        {
+          "label": "Candidate 2",
+          "start_s": 7,
+          "end_s": 10
         }
       ]
     },
@@ -383,7 +477,7 @@ window.LISTENING_STUDY = {
       "id": "q_895ebfe6eb72456d561643fc",
       "subtype": "infer_head_turn",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "The source stayed fixed. You turned your head 90 degrees between Recording 1 and Recording 2 without changing your position. Did you turn left or right?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -409,13 +503,25 @@ window.LISTENING_STUDY = {
           "sha256": "92bf0b8418ad6dd407e69162330623639313814b82f32ebc26c6590f92722ec6",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_8038289c2260ef9d1de343eb",
       "subtype": "joint_rotation_source_direction",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. Each recording contains a single clearly audible sound source at ear level, at the same distance from you in both recordings.",
+      "setup": "The supplied audio contains two separate static observations. Each recording contains a single clearly audible sound source at ear level, at the same distance from you in both recordings.",
       "question": "Recording 1 was made before the movements and Recording 2 after them. In between, you turned your head 90 degrees to your left without changing position. The source also moved horizontally around you during the turn, in one direction by at most 90 degrees, without reversing. Did the source move around you in the same direction as your head turn or in the opposite direction?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -440,6 +546,18 @@ window.LISTENING_STUDY = {
           "file": "clips/d929d5ec63ede18e.wav",
           "sha256": "561a127a85eb825453a010b217126bfca5bee0c7c5852a38410317c3e5c7f32f",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
         }
       ]
     },
@@ -483,7 +601,7 @@ window.LISTENING_STUDY = {
       "id": "q_91e18628541d06e57478918c",
       "subtype": "compensate_head_turn",
       "format": "judgment",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "You turned your head 90 degrees to your left without changing position. Recording 1 is before the turn; Recording 2 is after. The source may have stayed still or moved between Recording 1 and Recording 2. Can your head turn alone explain the sound directions in Recording 1 and Recording 2?",
       "instruction": "Answer only Yes or No.",
       "options": [],
@@ -500,13 +618,25 @@ window.LISTENING_STUDY = {
           "sha256": "5caae2b87dafca29e47315e26ac0ae6164b203769976aef3258a7249cb8c3a87",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_29bb58ea1acb0adc28aa5f18",
       "subtype": "match_after_head_turn",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording Reference: 0 to 4 seconds in the supplied audio.\nRecording Candidate 1: 4 to 7 seconds in the supplied audio.\nRecording Candidate 2: 7 to 10 seconds in the supplied audio.",
+      "setup": "",
       "question": "The source stayed in one place. Reference was recorded before you turned. You turned your head 90 degrees to the right without changing position. Which candidate recording, Candidate 1 or Candidate 2, matches what you would hear after the turn?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -532,13 +662,30 @@ window.LISTENING_STUDY = {
           "sha256": "defe81e3dd8021d9e646d9a4842404c5d2fd983d217c60787c8b3e8e7ade2063",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Reference",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Candidate 1",
+          "start_s": 4,
+          "end_s": 7
+        },
+        {
+          "label": "Candidate 2",
+          "start_s": 7,
+          "end_s": 10
+        }
       ]
     },
     {
       "id": "q_3ea2c53f9ee8453bfc32884c",
       "subtype": "translation_range_change",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. You moved 3.7 metres between the recordings. Loudness depends only on the distance between you and the sound source.",
+      "setup": "The supplied audio contains two separate static observations. You moved 3.7 metres between the recordings. Loudness depends only on the distance between you and the sound source.",
       "question": "The source stayed in one place. Recording 1 was made before you moved and Recording 2 after. Compared with Recording 1, is the source closer, farther away, or at about the same distance from you in Recording 2?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -568,13 +715,25 @@ window.LISTENING_STUDY = {
           "sha256": "55bf86fe8074143d80eba9c8db81af3bc0c518cf5cf46e9d1787fdd2e97ad5e5",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_35fb96a47c336d0370806a24",
       "subtype": "match_timed_movement_audio",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording Candidate 1: 0 to 5 seconds in the supplied audio.\nRecording Candidate 2: 5 to 10 seconds in the supplied audio.\nEach recording has its own timeline, starting at 0 seconds.\n\nEach candidate is one continuous recording. Initially, the source is 0.55 m directly in front of you at ear level. You kept facing the same direction and stayed at the same height. From 0 to 2.5 seconds, you moved 0.55 m to the left. From 2.5 to 5 seconds, you moved 0.55 m to the right.",
+      "setup": "Each recording has its own timeline, starting at 0 seconds.\n\nEach candidate is one continuous recording. Initially, the source is 0.55 m directly in front of you at ear level. You kept facing the same direction and stayed at the same height. From 0 to 2.5 seconds, you moved 0.55 m to the left. From 2.5 to 5 seconds, you moved 0.55 m to the right.",
       "question": "The source stayed fixed. Which recording matches the two movements shown on the timeline?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -600,13 +759,25 @@ window.LISTENING_STUDY = {
           "sha256": "0ade2dbc0ae741ca82eaea5382c5425adfcb10758039ab4505b5a072c2c39e71",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Candidate 1",
+          "start_s": 0.0,
+          "end_s": 5.0
+        },
+        {
+          "label": "Candidate 2",
+          "start_s": 5.0,
+          "end_s": 10.0
+        }
       ]
     },
     {
       "id": "q_bce05ff47f19d92c712953e6",
       "subtype": "static_relative_elevation",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. Each recording contains a single clearly audible sound source. The sound source remains stationary throughout each recording. You keep the same position and facing direction throughout both recordings. Both recordings use the same sound. Each recording is a separate static observation. The source is the same distance from you in both recordings.",
+      "setup": "The supplied audio contains two separate static observations. Each recording contains a single clearly audible sound source. The sound source remains stationary throughout each recording. You keep the same position and facing direction throughout both recordings. Both recordings use the same sound. Each recording is a separate static observation. The source is the same distance from you in both recordings.",
       "question": "Compare the sound direction in Recording 1 and Recording 2. Does the sound come from higher up in Recording 1, higher up in Recording 2, or about the same height?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -636,13 +807,25 @@ window.LISTENING_STUDY = {
           "sha256": "72a19952c86fdbd6104d59f88255497af20b420eb196af9216737e52823d25b3",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_f5f032df929479fa4baaf52f",
       "subtype": "match_joint_motion_audio",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording Candidate 1: 0 to 5 seconds in the supplied audio.\nRecording Candidate 2: 5 to 10 seconds in the supplied audio.\n\nEach candidate is one continuous recording. Loudness depends only on the distance between you and the sound source. Source emission level is constant and all clips use one shared gain.",
+      "setup": "Each candidate is one continuous recording. Loudness depends only on the distance between you and the sound source. Source emission level is constant and all clips use one shared gain.",
       "question": "Initially, the source is 0.55 m directly in front of you at ear level. You move 0.8 m to your right without turning or changing height. At the same time, the source moves 4 m in the same direction as your move, staying at ear level. Both movements happen at steady speeds throughout each candidate recording. Which candidate recording, Candidate 1 or Candidate 2, matches what you would hear during these movements?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -668,13 +851,25 @@ window.LISTENING_STUDY = {
           "sha256": "5b09b12c2f60602bba9d86698cf11f09c93b25b8f81979f65df75fb185ac2c7c",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Candidate 1",
+          "start_s": 0.0,
+          "end_s": 5.0
+        },
+        {
+          "label": "Candidate 2",
+          "start_s": 5.0,
+          "end_s": 10.0
+        }
       ]
     },
     {
       "id": "q_58446713da793f9c5c0b8937",
       "subtype": "translation_range_change",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. You moved 3.7 metres between the recordings. Loudness depends only on the distance between you and the sound source.",
+      "setup": "The supplied audio contains two separate static observations. You moved 3.7 metres between the recordings. Loudness depends only on the distance between you and the sound source.",
       "question": "The source stayed in one place. Recording 1 was made before you moved and Recording 2 after. Compared with Recording 1, is the source closer, farther away, or at about the same distance from you in Recording 2?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -704,13 +899,25 @@ window.LISTENING_STUDY = {
           "sha256": "2cca8e4879718640b010b579c2d1a9a03ab90f9472c5315b87e982fe245b91dc",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_f2c4ad022b36c247ee2160b9",
       "subtype": "static_relative_distance",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. Your position and facing direction are the same in both recordings. The same source stays still during each recording and is heard from the same direction. Loudness depends only on the distance between you and the sound source.",
+      "setup": "The supplied audio contains two separate static observations. Your position and facing direction are the same in both recordings. The same source stays still during each recording and is heard from the same direction. Loudness depends only on the distance between you and the sound source.",
       "question": "Does the source sound closer in Recording 1, closer in Recording 2, or at about the same distance?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -740,13 +947,25 @@ window.LISTENING_STUDY = {
           "sha256": "6feda6f72f83ea613353cf4eaa6ebd6b07fa5ba4f6f94913d9ba0e874763c154",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_ecdf70e57c5008bf83ecc6cf",
       "subtype": "translation_compatibility",
       "format": "judgment",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "You moved 1.27 m to your right in a straight line while keeping the same facing and ear height. Recording 1 is before the move. Recording 2 is after. The source may have stayed still or moved between recordings. If the source stayed still, it would sound noticeably farther away in Recording 2. Does the distance change you hear match that prediction?",
       "instruction": "Answer only Yes or No.",
       "options": [],
@@ -763,13 +982,25 @@ window.LISTENING_STUDY = {
           "sha256": "1d926106ba1e6b712ad1a0089495c113d85898569f9d6b2f604144013a4a2f44",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_fc78fbcc7c199dd65937e3ad",
       "subtype": "match_joint_motion_audio",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording Candidate 1: 0 to 5 seconds in the supplied audio.\nRecording Candidate 2: 5 to 10 seconds in the supplied audio.\n\nEach candidate is one continuous recording. Loudness depends only on the distance between you and the sound source. Source emission level is constant and all clips use one shared gain.",
+      "setup": "Each candidate is one continuous recording. Loudness depends only on the distance between you and the sound source. Source emission level is constant and all clips use one shared gain.",
       "question": "Initially, the source is 0.55 m directly in front of you at ear level. You move 0.8 m to your left without turning or changing height. At the same time, the source moves 0.4 m in the same direction as your move, staying at ear level. Both movements happen at steady speeds throughout each candidate recording. Which candidate recording, Candidate 1 or Candidate 2, matches what you would hear during these movements?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -795,13 +1026,25 @@ window.LISTENING_STUDY = {
           "sha256": "62fd430a3d6ae1a9c265db0a5d833cb354beb9eefc476cf5eccf5380a1d84ed2",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Candidate 1",
+          "start_s": 0.0,
+          "end_s": 5.0
+        },
+        {
+          "label": "Candidate 2",
+          "start_s": 5.0,
+          "end_s": 10.0
+        }
       ]
     },
     {
       "id": "q_88a9ac4a55f4714eac8e8cea",
       "subtype": "infer_translation",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "The source stayed fixed. You moved in a straight line at the same height without turning. You did not move diagonally. Recording 1 is before the move; Recording 2 is after. In which direction did you move?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -835,13 +1078,25 @@ window.LISTENING_STUDY = {
           "sha256": "068781804c108a3167d502385510697455cab3e3f9aad702df0f3d6561ae7d94",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_9b70b1d7041e0de9d8d029ae",
       "subtype": "compensate_head_turn",
       "format": "open",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "You turned your head 90 degrees to your right without changing position. Recording 1 is before the turn; Recording 2 is after. The source may have stayed still or moved between Recording 1 and Recording 2. Answer all questions in order.\n1. Where do you hear the sound in each recording?\n2. If the source stayed still, where would you hear it in Recording 2?\n3. Does that prediction match what you actually hear in Recording 2?\n4. State whether your head turn alone is enough, or whether source movement is also needed.",
       "instruction": "Answer all numbered questions in their presented order using short English sentences. No fixed sentence count is required.",
       "options": [],
@@ -858,13 +1113,25 @@ window.LISTENING_STUDY = {
           "sha256": "aaa626b59a115b9fe6be59f6e51303023c0c6b87a4ce3b17b3ce8974475ee7ab",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_dbe5c324e931ad2e5c254520",
       "subtype": "compensate_head_turn",
       "format": "judgment",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "You turned your head 90 degrees to your left without changing position. Recording 1 is before the turn; Recording 2 is after. The source may have stayed still or moved between Recording 1 and Recording 2. Can your head turn alone explain the sound directions in Recording 1 and Recording 2?",
       "instruction": "Answer only Yes or No.",
       "options": [],
@@ -880,6 +1147,18 @@ window.LISTENING_STUDY = {
           "file": "clips/274f758cfd328941.wav",
           "sha256": "cd6343784cf2b33f53ef0d85229106e0317a8642837eb2237613e21840101cc3",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
         }
       ]
     },
@@ -955,7 +1234,7 @@ window.LISTENING_STUDY = {
       "id": "q_913da8658b9a5c5751557cba",
       "subtype": "infer_translation",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "The source stayed fixed. You moved in a straight line at the same height without turning. You did not move diagonally. Recording 1 is before the move; Recording 2 is after. In which direction did you move?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -989,13 +1268,25 @@ window.LISTENING_STUDY = {
           "sha256": "9d5f546c87237a4ccf3cfd4d68af0030ed638320d0b11d1c0a90b6c7d22b3631",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_b181bb70f8bbf0ea41fbeff7",
       "subtype": "match_after_head_turn",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording Reference: 0 to 4 seconds in the supplied audio.\nRecording Candidate 1: 4 to 7 seconds in the supplied audio.\nRecording Candidate 2: 7 to 10 seconds in the supplied audio.",
+      "setup": "",
       "question": "The source stayed in one place. Reference was recorded before you turned. You turned your head 90 degrees to the right without changing position. Which candidate recording, Candidate 1 or Candidate 2, matches what you would hear after the turn?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -1021,13 +1312,30 @@ window.LISTENING_STUDY = {
           "sha256": "7f7a17054774aa55415cc5869c970ecde08fa9d3f1079a44beacec2f27736ec5",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Reference",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Candidate 1",
+          "start_s": 4,
+          "end_s": 7
+        },
+        {
+          "label": "Candidate 2",
+          "start_s": 7,
+          "end_s": 10
+        }
       ]
     },
     {
       "id": "q_14cd0aa6047eef511604554a",
       "subtype": "translation_compatibility",
       "format": "judgment",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. Loudness depends only on the distance between you and the sound source.",
+      "setup": "The supplied audio contains two separate static observations. Loudness depends only on the distance between you and the sound source.",
       "question": "You moved 5.4 m backward in a straight line without turning or changing height. Recording 1 is before the move; Recording 2 is after. The source may have stayed still or moved between Recording 1 and Recording 2. Can your movement alone explain the sound directions and distances in Recording 1 and Recording 2?",
       "instruction": "Answer only Yes or No.",
       "options": [],
@@ -1043,6 +1351,18 @@ window.LISTENING_STUDY = {
           "file": "clips/69945f7de609d6ab.wav",
           "sha256": "c2fc5be58e97de97c7bf9a5a191983f0467b18dedc952bdd8eb73c3cecaf7e29",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
         }
       ]
     },
@@ -1192,7 +1512,7 @@ window.LISTENING_STUDY = {
       "id": "q_f7a58bb92a0a79e9713827e4",
       "subtype": "translation_compatibility",
       "format": "open",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. Loudness depends only on the distance between you and the sound source.",
+      "setup": "The supplied audio contains two separate static observations. Loudness depends only on the distance between you and the sound source.",
       "question": "You moved 0.99 m to your left in a straight line without turning or changing height. Recording 1 is before the move; Recording 2 is after. In Recording 1, the source is 1.54 m from you at ear level. The source may have stayed still or moved between Recording 1 and Recording 2. Answer all questions in order.\n1. Where do you hear the sound in each recording, and how does the distance between you and the source compare?\n2. If the source stayed still, where would you hear it in Recording 2, and would it be closer, farther away, or at the same distance?\n3. Does that prediction match what you actually hear in Recording 2?\n4. State whether your move alone is enough, or whether source movement is also needed.",
       "instruction": "Answer all numbered questions in their presented order using short English sentences. No fixed sentence count is required.",
       "options": [],
@@ -1208,6 +1528,18 @@ window.LISTENING_STUDY = {
           "file": "clips/a939a32dffd41963.wav",
           "sha256": "fe675d5e9165aa5e559f7b4ff7fa66d424d79e83d60c9d0158c08c7716427748",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
         }
       ]
     },
@@ -1315,7 +1647,7 @@ window.LISTENING_STUDY = {
       "id": "q_0179192d255bec56babaee71",
       "subtype": "match_after_translation",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording Reference: 0 to 4 seconds in the supplied audio.\nRecording Candidate 1: 4 to 7 seconds in the supplied audio.\nRecording Candidate 2: 7 to 10 seconds in the supplied audio.",
+      "setup": "",
       "question": "The source stayed in one place. Reference was recorded before you moved. You moved 0.55 m diagonally forward and to your right without turning or changing height. Which candidate recording, Candidate 1 or Candidate 2, could have been made after the move?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -1341,13 +1673,30 @@ window.LISTENING_STUDY = {
           "sha256": "209761e054b1cafb0c9680f302d39e095e288817eccf8fe248d237c3e0a5d8d0",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Reference",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Candidate 1",
+          "start_s": 4,
+          "end_s": 7
+        },
+        {
+          "label": "Candidate 2",
+          "start_s": 7,
+          "end_s": 10
+        }
       ]
     },
     {
       "id": "q_9a3fb691e419ee2c307572dc",
       "subtype": "match_timed_movement_audio",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording Candidate 1: 0 to 5 seconds in the supplied audio.\nRecording Candidate 2: 5 to 10 seconds in the supplied audio.\nEach recording has its own timeline, starting at 0 seconds.\n\nEach candidate is one continuous recording. Initially, the source was 0.55 m directly in front of you at ear level. From 0 to 2.5 seconds, move 0.55 m toward the right of your initial facing direction while keeping your current heading. From 2.5 to 5 seconds, turn your head 45 degrees to your left without changing position.",
+      "setup": "Each recording has its own timeline, starting at 0 seconds.\n\nEach candidate is one continuous recording. Initially, the source was 0.55 m directly in front of you at ear level. From 0 to 2.5 seconds, move 0.55 m toward the right of your initial facing direction while keeping your current heading. From 2.5 to 5 seconds, turn your head 45 degrees to your left without changing position.",
       "question": "The source stayed fixed. Which recording matches the two movements shown on the timeline?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -1373,13 +1722,25 @@ window.LISTENING_STUDY = {
           "sha256": "b17a5c6d98d9e330e3b31feb5ef4a27088dc225ec9b3963999d6d1e89518c4c7",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Candidate 1",
+          "start_s": 0.0,
+          "end_s": 5.0
+        },
+        {
+          "label": "Candidate 2",
+          "start_s": 5.0,
+          "end_s": 10.0
+        }
       ]
     },
     {
       "id": "q_6a437f7ed65604780a3a631a",
       "subtype": "compensate_head_turn",
       "format": "judgment",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "You turned your head 90 degrees to your right without changing position. Recording 1 is before the turn; Recording 2 is after. The source may have stayed still or moved between Recording 1 and Recording 2. Can your head turn alone explain the sound directions in Recording 1 and Recording 2?",
       "instruction": "Answer only Yes or No.",
       "options": [],
@@ -1396,13 +1757,25 @@ window.LISTENING_STUDY = {
           "sha256": "e2177fe2639bd5fd36cad8bdcc03ee641240e87b33b85bfd789b29e97f8be14e",
           "view": "reverberant_binaural"
         }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
+        }
       ]
     },
     {
       "id": "q_d3414f8046d4fd4339a8af09",
       "subtype": "static_relative_elevation",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. Each recording contains a single clearly audible sound source. The sound source remains stationary throughout each recording. You keep the same position and facing direction throughout both recordings. Both recordings use the same sound. Each recording is a separate static observation. The source is the same distance from you in both recordings.",
+      "setup": "The supplied audio contains two separate static observations. Each recording contains a single clearly audible sound source. The sound source remains stationary throughout each recording. You keep the same position and facing direction throughout both recordings. Both recordings use the same sound. Each recording is a separate static observation. The source is the same distance from you in both recordings.",
       "question": "Compare the sound direction in Recording 1 and Recording 2. Does the sound come from higher up in Recording 1, higher up in Recording 2, or about the same height?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -1431,6 +1804,18 @@ window.LISTENING_STUDY = {
           "file": "clips/808dbbed79b41e6c.wav",
           "sha256": "c87e907e3f10baabd88b8fd1363d63ed0b88278e9f5a3d313c86c19b179a5997",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
         }
       ]
     },
@@ -1474,7 +1859,7 @@ window.LISTENING_STUDY = {
       "id": "q_265b4d5a3b9147a73de5bcb2",
       "subtype": "infer_head_turn",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "The source stayed fixed. You turned your head 90 degrees between Recording 1 and Recording 2 without changing your position. Did you turn left or right?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -1499,6 +1884,18 @@ window.LISTENING_STUDY = {
           "file": "clips/1bf42b285c4cceb0.wav",
           "sha256": "af9e332d4f62da59b4b95251109634b6a0bf112646024588bf70ca4f3eb8725e",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
         }
       ]
     },
@@ -1546,7 +1943,7 @@ window.LISTENING_STUDY = {
       "id": "q_b4940a1857caec8160f97dcd",
       "subtype": "match_after_head_turn",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording Reference: 0 to 4 seconds in the supplied audio.\nRecording Candidate 1: 4 to 7 seconds in the supplied audio.\nRecording Candidate 2: 7 to 10 seconds in the supplied audio.",
+      "setup": "",
       "question": "The source stayed in one place. Reference was recorded before you turned. You turned your head 90 degrees to the left without changing position. Which candidate recording, Candidate 1 or Candidate 2, matches what you would hear after the turn?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -1571,6 +1968,23 @@ window.LISTENING_STUDY = {
           "file": "clips/310986cdf58d58db.wav",
           "sha256": "0e82365f482805ae63866753d890ef3b0e58f78531add3f28dc0e4428eda2e95",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Reference",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Candidate 1",
+          "start_s": 4,
+          "end_s": 7
+        },
+        {
+          "label": "Candidate 2",
+          "start_s": 7,
+          "end_s": 10
         }
       ]
     },
@@ -1610,7 +2024,7 @@ window.LISTENING_STUDY = {
       "id": "q_6a86476c98f817e0342ae8dc",
       "subtype": "infer_head_turn",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "The source stayed fixed. You turned your head 90 degrees between Recording 1 and Recording 2 without changing your position. Did you turn left or right?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -1635,6 +2049,18 @@ window.LISTENING_STUDY = {
           "file": "clips/7f37e10e25eb45ff.wav",
           "sha256": "c68db881038ccb8f4782b11269ec6cf5208b1f9d6cfa803837a6af463666f806",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
         }
       ]
     },
@@ -1710,7 +2136,7 @@ window.LISTENING_STUDY = {
       "id": "q_1f0384876a7dd442765f994e",
       "subtype": "infer_translation",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations.",
+      "setup": "The supplied audio contains two separate static observations.",
       "question": "The source stayed fixed. You moved in a straight line at the same height without turning. You did not move diagonally. Recording 1 is before the move; Recording 2 is after. In which direction did you move?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -1743,6 +2169,18 @@ window.LISTENING_STUDY = {
           "file": "clips/9dca137463372a31.wav",
           "sha256": "9ba51f5efacdbe6d28383b88be0b2cc8023840913bd5824e30dc9a089ac2b9b5",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
         }
       ]
     },
@@ -1790,7 +2228,7 @@ window.LISTENING_STUDY = {
       "id": "q_b81f34b48639e688c74ecd43",
       "subtype": "translation_range_change",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. You moved 4.7 metres between the recordings. Loudness depends only on the distance between you and the sound source.",
+      "setup": "The supplied audio contains two separate static observations. You moved 4.7 metres between the recordings. Loudness depends only on the distance between you and the sound source.",
       "question": "The source stayed in one place. Recording 1 was made before you moved and Recording 2 after. Compared with Recording 1, is the source closer, farther away, or at about the same distance from you in Recording 2?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -1819,6 +2257,18 @@ window.LISTENING_STUDY = {
           "file": "clips/96f978503ba2a2aa.wav",
           "sha256": "62c2499e4092ea089dca21a35aaed6255769abfbc819e02b605fbb3f5e198f7e",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
         }
       ]
     },
@@ -1862,7 +2312,7 @@ window.LISTENING_STUDY = {
       "id": "q_d968801fab615478c4a76501",
       "subtype": "static_relative_distance",
       "format": "single_choice",
-      "setup": "The supplied audio contains the following recordings:\nRecording 1: 0 to 4 seconds in the supplied audio.\nRecording 2: 4 to 8 seconds in the supplied audio.\n\nThe supplied audio contains two separate static observations. Your position and facing direction are the same in both recordings. The same source stays still during each recording and is heard from the same direction. Loudness depends only on the distance between you and the sound source.",
+      "setup": "The supplied audio contains two separate static observations. Your position and facing direction are the same in both recordings. The same source stays still during each recording and is heard from the same direction. Loudness depends only on the distance between you and the sound source.",
       "question": "Does the source sound closer in Recording 1, closer in Recording 2, or at about the same distance?",
       "instruction": "Return only the letter of the correct option.",
       "options": [
@@ -1891,6 +2341,18 @@ window.LISTENING_STUDY = {
           "file": "clips/c7e106bf9afc4d93.wav",
           "sha256": "a51afaf7e402d254684684770912605242ee66f7af9193812d0a74528adec87d",
           "view": "reverberant_binaural"
+        }
+      ],
+      "segments": [
+        {
+          "label": "Recording 1",
+          "start_s": 0,
+          "end_s": 4
+        },
+        {
+          "label": "Recording 2",
+          "start_s": 4,
+          "end_s": 8
         }
       ]
     },

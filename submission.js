@@ -15,7 +15,8 @@
       start:first.session_started_utc, end:first.finished_utc,
       trials:rows.map(r => [indices.get(r.qa_id), r.view === "direct_binaural" ? 0 : 1,
         r.answer, r.playback_starts, Number(r.reached_end), Date.parse(r.first_shown_utc)-start,
-        Date.parse(r.answer_updated_utc)-start])
+        Date.parse(r.answer_updated_utc)-start,
+        ...(r.segment_playback ? [r.segment_playback.map(p => [p.starts,Number(p.ended)]),Number(r.prior_full_clip_playback)] : [])])
     };
     const compressed = new Blob([JSON.stringify(packed)]).stream().pipeThrough(new CompressionStream("gzip"));
     const bytes = await new Response(compressed).arrayBuffer();

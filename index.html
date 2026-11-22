@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <title>Spatial listening test · AudioWorldSim</title>
-  <link rel="stylesheet" href="styles.css?v=english-name">
+  <link rel="stylesheet" href="styles.css?v=segments">
 </head>
 <body>
   <header class="mast"><div class="mast-inner">
@@ -43,8 +43,8 @@
         <div class="progress-box"><span id="progress-text"></span><progress id="progress" max="120" value="0"></progress></div></div>
       <div class="question-grid">
         <section class="panel playback">
-          <h2>Recording</h2>
-          <audio id="player" controls preload="auto" aria-label="Question recording"></audio>
+          <h2 id="recordings-title">Recording</h2>
+          <div id="players" role="group" aria-labelledby="recordings-title"></div>
           <p id="media-error" class="notice" role="alert" hidden></p>
           <div id="setup-text" class="setup-text"></div>
         </section>
@@ -73,11 +73,11 @@
     </section>
   </main>
   <dialog id="instructions"><h2>Listening instructions</h2>
-    <ol><li>Wear stereo headphones in the correct left/right orientation. Keep your playback volume fixed.</li><li>Listen to the recording before moving on. You can replay it. Some questions combine several recordings into one file. Use the time ranges shown.</li><li>Select one answer, select all that apply, or write your own answer as requested. Give open answers in English.</li><li>You can revise answers within the current block. After the final trial, follow the submission instructions.</li></ol>
+    <ol><li>Wear stereo headphones in the correct left/right orientation. Keep your playback volume fixed.</li><li>Listen to each recording before moving on. You can replay any recording independently.</li><li>Select one answer, select all that apply, or write your own answer as requested. Give open answers in English.</li><li>You can revise answers within the current block. After the final trial, follow the submission instructions.</li></ol>
     <form method="dialog"><button class="primary">Close instructions</button></form>
   </dialog>
-  <script src="questions.js?v=paired120"></script>
+  <script src="questions.js?v=segments"></script>
   <script src="public-key.js"></script>
-  <script src="submission.js?v=english-name"></script>
-  <script src="app.js?v=english-name"></script>
+  <script src="submission.js?v=segments"></script>
+  <script src="app.js?v=segments"></script>
 </body></html>
