@@ -26,13 +26,16 @@ function unpack(text) {
   const legacy = /^L\d{2,4}$/.test(data.code) && data.list === (Number(data.code.slice(1))%2 ? "A":"B");
   const named = /^P[0-9a-f]{32}$/.test(data.code) && typeof data.name === "string" &&
     data.name.trim().length > 0 && data.name.length <= 120 && ["A","B"].includes(data.list);
-  if (data.study !== pack.study || ![pack.release,pack.previousRelease].includes(data.release) || !(legacy || named) ||
+  const releases = [...pack.priorReleases,pack.release];
+  if (data.study !== pack.study || !releases.includes(data.release) || !(legacy || named) ||
       data.trials.length !== 2*half) throw Error("Study identity or trial count mismatch");
   const start = Date.parse(data.start);
   const at = offset => new Date(start+offset).toISOString();
   const seen = new Set();
   const previous = new Set(data.previousTrials || []);
   if ([...previous].some(i => !Number.isInteger(i) || i<0 || i>=data.trials.length)) throw Error("Invalid previous trial index");
+  if (data.trialReleases && (!Array.isArray(data.trialReleases) || data.trialReleases.length !== data.trials.length ||
+      data.trialReleases.some(v => !Number.isInteger(v) || v<0 || v>releases.indexOf(data.release)))) throw Error("Invalid trial release");
   const rows = data.trials.map(([index,side,answer,plays,ended,shown,updated,parts,whole],i) => {
     if (!Number.isInteger(index) || ![0,1].includes(side) || !(plays>0) || seen.has(index+"/"+side) ||
         (i>=half && index!==data.trials[i-half][0])) throw Error("Invalid paired trial");
@@ -40,10 +43,10 @@ function unpack(text) {
     const q=pack.questions[index], clip=q.clips[side];
     if (parts && (!Array.isArray(parts) || parts.length !== q.segments?.length ||
         !parts.every(([starts,end]) => Number.isInteger(starts) && starts >= 0 && [0,1].includes(end)))) throw Error("Invalid recording playback");
-    const prior = data.release === pack.previousRelease || previous.has(i);
-    return {study:pack.study,release_sha256:prior ? pack.previousRelease : pack.release,participant:data.code,...(named ? {participant_name:data.name} : {}),list:data.list,
+    const release = data.trialReleases ? releases[data.trialReleases[i]] : (previous.has(i) ? releases[0] : data.release);
+    return {study:pack.study,release_sha256:release,participant:data.code,...(named ? {participant_name:data.name} : {}),list:data.list,
       block:i<half?1:2,position:i+1,qa_id:q.id,view:clip.view,audio_sha256:clip.sha256,
-      prompt_sha256:prior ? q.previousPromptSha256 || q.promptSha256 : q.promptSha256,subtype_id:q.subtype,answer_format:q.format,answer,
+      prompt_sha256:q.priorPromptHashes?.[release] || q.promptSha256,subtype_id:q.subtype,answer_format:q.format,answer,
       raw_response:Array.isArray(answer)?answer.join(", "):answer,playback_starts:plays,reached_end:Boolean(ended),
       ...(parts ? {segment_playback:parts.map(([starts,end]) => ({starts,ended:Boolean(end)})),prior_full_clip_playback:Boolean(whole)} : {}),
       session_started_utc:data.start,first_shown_utc:at(shown),answer_updated_utc:at(updated),finished_utc:data.end};

@@ -267,8 +267,8 @@
     return order.flatMap(({id, key, clip}, i) => {
       const t = state.trials[key]; if (!hasAnswer(t)) return [];
       const q = catalog.get(id);
-      const release = t.answerRelease || study.previousRelease;
-      const promptHash = release === study.previousRelease && q.previousPromptSha256 || q.promptSha256;
+      const release = t.answerRelease || study.priorReleases[0];
+      const promptHash = q.priorPromptHashes?.[release] || q.promptSha256;
       return [{study:study.study, release_sha256:release, participant:state.code,
         ...(state.name ? {participant_name:state.name} : {}), list:state.list,
         block:i < half ? 1 : 2, position:i+1, qa_id:id, view:clip.view, audio_sha256:clip.sha256,

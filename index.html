@@ -33,7 +33,8 @@
           <h2>Your session</h2>
           <p>Your answers will be collected for academic research.</p>
           <label for="listener">English name</label>
-          <input id="listener" name="name" type="text" maxlength="120" placeholder="e.g. Alex Chen" autocomplete="name" autocapitalize="words" spellcheck="false" required>
+          <input id="listener" name="name" type="text" maxlength="120" placeholder="e.g. Alex Chen" autocomplete="name" autocapitalize="words" spellcheck="false" aria-describedby="resume-hint" required>
+          <p id="resume-hint" class="small">You can leave anytime and resume in the same browser on the same computer by entering the same name (capitalization doesn’t matter).</p>
           <button type="submit" class="primary">Enter listening test <span aria-hidden="true">→</span></button>
         </form>
       </div>
@@ -76,8 +77,8 @@
     <ol><li>Wear stereo headphones in the correct left/right orientation. Keep your playback volume fixed.</li><li>Listen to each recording before moving on. You can replay any recording independently.</li><li>Select one answer, select all that apply, or write your own answer as requested. Give open answers in English.</li><li>You can revise answers within the current block. After the final trial, follow the submission instructions.</li></ol>
     <form method="dialog"><button class="primary">Close instructions</button></form>
   </dialog>
-  <script src="questions.js?v=motion-subjects"></script>
+  <script src="questions.js?v=mixed-stages"></script>
   <script src="public-key.js"></script>
-  <script src="submission.js?v=motion-subjects"></script>
-  <script src="app.js?v=motion-subjects"></script>
+  <script src="submission.js?v=mixed-stages"></script>
+  <script src="app.js?v=mixed-stages"></script>
 </body></html>

@@ -1,7 +1,10 @@
 window.LISTENING_STUDY = {
   "study": "aws-listening-paired120-20261121-v1",
-  "release": "913d6767897d7aecc10e78ce3364644778da1d4c53047a7774894401b7591c37",
-  "previousRelease": "0f2cae952769aa5d16fdf4606a1130e9480856701fe68ade0258d151004b8645",
+  "release": "ca42f8b2b406302222064e2e204499295d11de08b6e92f51cbae0538845b55cc",
+  "priorReleases": [
+    "0f2cae952769aa5d16fdf4606a1130e9480856701fe68ade0258d151004b8645",
+    "913d6767897d7aecc10e78ce3364644778da1d4c53047a7774894401b7591c37"
+  ],
   "questions": [
     {
       "id": "q_1a6abd3dc49c7a1ed99cb2c9",
@@ -316,7 +319,9 @@ window.LISTENING_STUDY = {
           "view": "reverberant_binaural"
         }
       ],
-      "previousPromptSha256": "26a2d49ea7d4f190a0dd9307e62c8b63bd7cdf513837c1e52c64e48fc0f4ae96"
+      "priorPromptHashes": {
+        "0f2cae952769aa5d16fdf4606a1130e9480856701fe68ade0258d151004b8645": "26a2d49ea7d4f190a0dd9307e62c8b63bd7cdf513837c1e52c64e48fc0f4ae96"
+      }
     },
     {
       "id": "q_810d2c1841d14590475807c4",
@@ -1195,7 +1200,9 @@ window.LISTENING_STUDY = {
           "view": "reverberant_binaural"
         }
       ],
-      "previousPromptSha256": "9f049ebaae3cfb8ceae1e565f5fa3ea227cc69c92730f367281681b89fcce806"
+      "priorPromptHashes": {
+        "0f2cae952769aa5d16fdf4606a1130e9480856701fe68ade0258d151004b8645": "9f049ebaae3cfb8ceae1e565f5fa3ea227cc69c92730f367281681b89fcce806"
+      }
     },
     {
       "id": "q_47efe823b5ff0ae17aadf725",
@@ -1492,11 +1499,11 @@ window.LISTENING_STUDY = {
       "id": "q_1557b4aea96803aad4fbed70",
       "subtype": "describe_spatial_changes_over_time",
       "format": "open",
-      "setup": "The supplied audio contains the following recording:\nRecording 1: 0 to 10 seconds in the supplied audio.\nTimes start at 0 seconds in this recording. This is one continuous recording.\n\nThe source stayed fixed. Initially, the source is 0.55 m directly in front of you at ear level. You made one in-place horizontal head turn and one straight horizontal movement while facing the same way during that movement.",
+      "setup": "The supplied audio contains the following recording:\nRecording 1: 0 to 10 seconds in the supplied audio.\nTimes start at 0 seconds in this recording. This is one continuous recording.\n\nThe source stayed fixed. Initially, the source was 0.55 m directly in front of you at ear level. In one stage, you turned your head horizontally while staying in place. In the other, you moved in a straight horizontal line without turning your head.",
       "question": "Describe how the sound direction changes during each stage. Give approximate start and end times for both stages.",
       "instruction": "Answer both stages in order.",
       "options": [],
-      "promptSha256": "543b0760c2e3a0f92afe24e19f8d68cf0989743076f6671587c2ac5ead04ffde",
+      "promptSha256": "789ff83051fa7279859a81531365ec796ebd1f38c9d359b3322ae9887b4c8108",
       "directForA": false,
       "clips": [
         {
@@ -1509,7 +1516,11 @@ window.LISTENING_STUDY = {
           "sha256": "7f6950fbbfd18b7b42f78e07205dccf78876b15b80d0f632cf2a0ebfe2fe3cd8",
           "view": "reverberant_binaural"
         }
-      ]
+      ],
+      "priorPromptHashes": {
+        "0f2cae952769aa5d16fdf4606a1130e9480856701fe68ade0258d151004b8645": "543b0760c2e3a0f92afe24e19f8d68cf0989743076f6671587c2ac5ead04ffde",
+        "913d6767897d7aecc10e78ce3364644778da1d4c53047a7774894401b7591c37": "543b0760c2e3a0f92afe24e19f8d68cf0989743076f6671587c2ac5ead04ffde"
+      }
     },
     {
       "id": "q_f7a58bb92a0a79e9713827e4",
@@ -1738,7 +1749,9 @@ window.LISTENING_STUDY = {
           "end_s": 10.0
         }
       ],
-      "previousPromptSha256": "ebaf736ca8f7c747de796918a2e56bf7e7302ca6fdb320ee4c5e2c6e66075d2c"
+      "priorPromptHashes": {
+        "0f2cae952769aa5d16fdf4606a1130e9480856701fe68ade0258d151004b8645": "ebaf736ca8f7c747de796918a2e56bf7e7302ca6fdb320ee4c5e2c6e66075d2c"
+      }
     },
     {
       "id": "q_6a437f7ed65604780a3a631a",
@@ -2023,7 +2036,9 @@ window.LISTENING_STUDY = {
           "view": "reverberant_binaural"
         }
       ],
-      "previousPromptSha256": "0faaf7f0f2c268aaa1382634eda800080a07902a009e79be3e9de2e9c43f2475"
+      "priorPromptHashes": {
+        "0f2cae952769aa5d16fdf4606a1130e9480856701fe68ade0258d151004b8645": "0faaf7f0f2c268aaa1382634eda800080a07902a009e79be3e9de2e9c43f2475"
+      }
     },
     {
       "id": "q_6a86476c98f817e0342ae8dc",
@@ -2312,7 +2327,9 @@ window.LISTENING_STUDY = {
           "view": "reverberant_binaural"
         }
       ],
-      "previousPromptSha256": "18728900c0b93ab80360959142ee394fc8d6a7e4df428f2c4481838a4c088d73"
+      "priorPromptHashes": {
+        "0f2cae952769aa5d16fdf4606a1130e9480856701fe68ade0258d151004b8645": "18728900c0b93ab80360959142ee394fc8d6a7e4df428f2c4481838a4c088d73"
+      }
     },
     {
       "id": "q_d968801fab615478c4a76501",
@@ -2393,7 +2410,9 @@ window.LISTENING_STUDY = {
           "view": "reverberant_binaural"
         }
       ],
-      "previousPromptSha256": "591183da6b334520701b556ae4ccb5d27b948e4cfcf6617451f1e026d571093f"
+      "priorPromptHashes": {
+        "0f2cae952769aa5d16fdf4606a1130e9480856701fe68ade0258d151004b8645": "591183da6b334520701b556ae4ccb5d27b948e4cfcf6617451f1e026d571093f"
+      }
     }
   ]
 };
