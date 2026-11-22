@@ -31,7 +31,7 @@
         </section>
         <form id="start-form" class="panel start-panel">
           <h2>Your session</h2>
-          <p>Your answers will be collected for academic research.</p>
+          <p>You’ll answer two blocks of 42 trials. Your answers will be collected for academic research.</p>
           <label for="listener">English name</label>
           <input id="listener" name="name" type="text" maxlength="120" placeholder="e.g. Alex Chen" autocomplete="name" autocapitalize="words" spellcheck="false" aria-describedby="resume-hint" required>
           <p id="resume-hint" class="small">You can leave anytime and resume in the same browser on the same computer by entering the same name (capitalization doesn’t matter).</p>
@@ -41,7 +41,7 @@
     </section>
     <section id="test" aria-labelledby="question-title" hidden>
       <div class="test-head"><div><span id="session-label" class="small"></span><h1 id="question-title" tabindex="-1"></h1></div>
-        <div class="progress-box"><span id="progress-text"></span><progress id="progress" max="120" value="0"></progress></div></div>
+        <div class="progress-box"><span id="progress-text"></span><progress id="progress" max="84" value="0"></progress></div></div>
       <div class="question-grid">
         <section class="panel playback">
           <h2 id="recordings-title">Recording</h2>
@@ -62,7 +62,7 @@
     </section>
     <section id="pause" class="panel end-panel" hidden>
       <h1 id="pause-title" tabindex="-1">First block complete</h1>
-      <p>You have answered 60 of 120 trials. To resume, enter the same name in this browser.</p>
+      <p>You have answered 42 of 84 trials. To resume, enter the same name in this browser.</p>
       <div class="end-actions"><button id="resume-block" class="primary" type="button">Start block 2</button><button id="partial" class="secondary" type="button">Download first block</button><button id="pause-home" class="link-button" type="button">Return to start</button></div>
     </section>
     <section id="done" class="panel end-panel" hidden>
@@ -77,8 +77,8 @@
     <ol><li>Wear stereo headphones in the correct left/right orientation. Keep your playback volume fixed.</li><li>Listen to each recording before moving on. You can replay any recording independently.</li><li>Select one answer, select all that apply, or write your own answer as requested. Give open answers in English.</li><li>You can revise answers within the current block. After the final trial, follow the submission instructions.</li></ol>
     <form method="dialog"><button class="primary">Close instructions</button></form>
   </dialog>
-  <script src="questions.js?v=mixed-stages"></script>
+  <script src="questions.js?v=balanced84"></script>
   <script src="public-key.js"></script>
-  <script src="submission.js?v=mixed-stages"></script>
-  <script src="app.js?v=mixed-stages"></script>
+  <script src="submission.js?v=balanced84"></script>
+  <script src="app.js?v=balanced84"></script>
 </body></html>
