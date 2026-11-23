@@ -1,7 +1,9 @@
 window.LISTENING_STUDY = {
   "study": "aws-listening-balanced84-20261122",
-  "release": "ca42f8b2b406302222064e2e204499295d11de08b6e92f51cbae0538845b55cc",
-  "priorReleases": [],
+  "release": "2a55c493f6eed13b64792275d60d8c23f43abd7221d14bf291924790ce952c3c",
+  "priorReleases": [
+    "ca42f8b2b406302222064e2e204499295d11de08b6e92f51cbae0538845b55cc"
+  ],
   "questions": [
     {
       "id": "q_18c962b0b6d28590f03740ac",
@@ -1580,10 +1582,10 @@ window.LISTENING_STUDY = {
       "subtype": "describe_spatial_changes_over_time",
       "format": "open",
       "setup": "The supplied audio contains the following recording:\nRecording 1: 0 to 10 seconds in the supplied audio.\nTimes start at 0 seconds in this recording. This is one continuous recording.\n\nThe source stayed fixed. Initially, the source is 0.55 m directly in front of you at ear level. You made two horizontal head turns without changing position. Stage 1: 0 to 6 s. Stage 2: 6 to 10 s.",
-      "question": "Describe how the sound direction changes during Stage 1 and Stage 2.",
+      "question": "Listen to Stage 1 and then Stage 2. In each stage, which way did the sound seem to shift relative to you? If it stayed in the same direction, say so.",
       "instruction": "Answer both stages in order.",
       "options": [],
-      "promptSha256": "9bead4cbd28c1421712928bf14a9dcfbdaf37cf8b443af72c0d09d3f1eae83e4",
+      "promptSha256": "46a1238fbaa4c3f028903269709ffd5c28c727bcc44abc086dc31739e95ca047",
       "directForA": true,
       "clips": [
         {
@@ -1596,7 +1598,10 @@ window.LISTENING_STUDY = {
           "sha256": "1aad7eed30c049e632ad0d0ed24826a33084213ea36f1647491fcea46216634d",
           "view": "reverberant_binaural"
         }
-      ]
+      ],
+      "priorPromptHashes": {
+        "ca42f8b2b406302222064e2e204499295d11de08b6e92f51cbae0538845b55cc": "9bead4cbd28c1421712928bf14a9dcfbdaf37cf8b443af72c0d09d3f1eae83e4"
+      }
     },
     {
       "id": "q_fc78fbcc7c199dd65937e3ad",
